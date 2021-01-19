@@ -25,13 +25,18 @@ public class ClientHandler extends Thread{
                 if (command.equals("register")){
                     String username = inputStream.readUTF();
                     String password = inputStream.readUTF();
+                    String confirmPassword = inputStream.readUTF();
 
                     if (database.has_username(username)){
                         outputStream.writeUTF("exist");
-                    }else{
+                    }else if (username.length()<5) {
+                        outputStream.writeUTF("less_than_five_letters");
+                    }else if (!password.equals(confirmPassword)) {
+                        outputStream.writeUTF("not_match");
+                    }else {
                         database.users.add(new User(username , password));
                         current_user = database.find(username);
-                        outputStream.writeUTF("OK");
+                        outputStream.writeUTF("Done");
                     }
                     outputStream.flush();
                 }
