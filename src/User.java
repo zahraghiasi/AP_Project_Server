@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class User implements Serializable {
 
@@ -6,11 +7,32 @@ public class User implements Serializable {
     private String password;
     private String profileImage;
     private boolean isLoggedIn = false;
+    private int coin;
+    private int score;
+    private ArrayList<Game> onlineGames = new ArrayList<>();
+    private ArrayList<Game> pastGames = new ArrayList<>();
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
+
+    public int getCoin() {
+        return coin;
+    }
+
+    public void setCoin(int coin) {
+        this.coin = coin;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
 
     public String getUsername() {
         return username;

@@ -14,8 +14,7 @@ public class Main {
         Database database = new Database(users);
 
         while (true){
-            clientSocket = serverSocket.accept();
-            Thread clientThread = new ClientHandler(clientSocket,database);
+            Thread clientThread = new ClientHandler(serverSocket.accept(),database);
             clientThreads.add((ClientHandler) clientThread);
             clientThread.start();
         }

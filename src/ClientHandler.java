@@ -20,6 +20,9 @@ public class ClientHandler extends Thread{
             inputStream = new DataInputStream(clientSocket.getInputStream());
             outputStream = new DataOutputStream(clientSocket.getOutputStream());
 
+
+            System.out.println("connected");
+            outputStream.writeUTF("check");
             command = inputStream.readUTF();
             while (!command.equals("end") && running){
                 if (command.equals("register")){
@@ -38,6 +41,7 @@ public class ClientHandler extends Thread{
                         current_user = database.find(username);
                         outputStream.writeUTF("Done");
                     }
+                    outputStream.writeUTF("exist");
                     outputStream.flush();
                 }
                 else if (command.equals("login")){

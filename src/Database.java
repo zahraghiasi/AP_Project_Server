@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 
 public class Database {
-    ArrayList<User> users;
+    ArrayList<User> users = new ArrayList<>();
     ArrayList<Question> questions = new ArrayList<>();
+    ArrayList<Subject> subjects = new ArrayList<>();
 
     public Database(ArrayList<User> users){
         this.users = users;
@@ -18,6 +19,11 @@ public class Database {
         q.correct_answer = question1.correct_answer;
         questions.add(q);
 
+    }
+
+    public void addSubject(Subject subject1){
+        Subject subject = new Subject();
+        subject.questions = subject1.questions;
     }
 
     public boolean has_username(String username){
