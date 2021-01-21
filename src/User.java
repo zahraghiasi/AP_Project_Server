@@ -65,4 +65,20 @@ public class User implements Serializable {
     public void setLoggedIn(boolean loggedIn) {
         isLoggedIn = loggedIn;
     }
+
+    public ArrayList<Game> getOnlineGames() {
+        return onlineGames;
+    }
+
+    public void setOnlineGames(ArrayList<Game> onlineGames) {
+        this.onlineGames = onlineGames;
+    }
+
+    public ArrayList<Game> getPastGames() {
+        return pastGames;
+    }
+
+    public void setPastGames(ArrayList<Game> pastGames) {
+        this.pastGames = pastGames;
+    }
 }
